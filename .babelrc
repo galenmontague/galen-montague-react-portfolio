@@ -1,0 +1,17 @@
+// "." at the beginning at the file name indicates a hidden file
+// "rc" is almost always a configuration file
+// sooo, this is a hidden configuration file
+
+
+// Babel helps older browsers read modern JS. Babel compiles modern code into older code
+
+{
+  "presets": [
+    "env",
+    "react"
+  ],
+  "plugins": [
+    "babel-plugin-transform-class-properties",
+    "babel-plugin-transform-object-rest-spread"
+  ]
+}

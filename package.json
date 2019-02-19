@@ -1,0 +1,91 @@
+{
+  "name": "galen-montague-react-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio app built in React",
+  "scripts": {
+    "preinstall": "npm set audit false",
+    "start": "webpack-dev-server --config webpack/dev.config.js --watch",
+    // this server ("webpack-dev-server") gets set up on "npm start"
+    "build": "cross-env NODE_ENV=production webpack --config webpack/prod.config.js --progress --display-error-details --color",
+    // takes our application and gets it ready for production. Runs a full set of processes listed above
+    "heroku-postbuild": "npm run build",
+    // Heroku is the app engine for deploying to the web. This is a command for heroku to see. (Heroku is a way to host your site for free)
+    "precommit": "eslint src",
+    // checks for crazy, bad styles
+    "prod": "NODE_ENV=production node server.js"
+    // sets the environment to production and runs node
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:bottega-code-school/js-builder.git"
+  },
+  "keywords": [
+    // for others to see what this app is made up of. Good for search enging optimizaiton
+    "es6",
+    "es7",
+    "webpack2",
+    "webpack3",
+    "starter",
+    "template",
+    "postcss",
+    "sass",
+    "css module"
+  ],
+  "author": "Galen Montague",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bottega-code-school/js-builder/issues"
+    // For open source, you want to provide a place for others to list problems
+  },
+  "homepage": "https://github.com/bottega-code-school/js-builder",
+  "dependencies": {
+    "ajv": "^5.5.2",
+    "autoprefixer": "^9.1.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-async-to-promises": "^1.0.5",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "clean-webpack-plugin": "^0.1.16",
+    "copy-webpack-plugin": "^4.5.2",
+    "cross-env": "^5.2.0",
+    "css-loader": "^1.0.0",
+    "eslint": "^4.2.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-react": "^7.1.0",
+    "express": "^4.16.3", // the web server we'll be using
+    "extract-loader": "^2.0.1",
+    "file-loader": "^1.1.11",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "moment": "^2.24.0",
+    "node-sass": "^4.9.2",
+    "postcss-loader": "^2.1.6",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-redux": "5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.3.1",
+    "redux": "^3.7.2",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.16.4",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-middleware": "^3.1.3",
+    "webpack-dev-server": "3.1.5",
+    "webpack-hot-middleware": "^2.22.3",
+    "webpack-merge": "^4.1.0"
+  },
+  "devDependencies": {
+    // these are separated from the main list above, because we only want to provide items that the server is going to need
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "uglifyjs-webpack-plugin": "^1.2.7"
+  }
+}
