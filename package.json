@@ -5,22 +5,16 @@
   "scripts": {
     "preinstall": "npm set audit false",
     "start": "webpack-dev-server --config webpack/dev.config.js --watch",
-    // this server ("webpack-dev-server") gets set up on "npm start"
     "build": "cross-env NODE_ENV=production webpack --config webpack/prod.config.js --progress --display-error-details --color",
-    // takes our application and gets it ready for production. Runs a full set of processes listed above
     "heroku-postbuild": "npm run build",
-    // Heroku is the app engine for deploying to the web. This is a command for heroku to see. (Heroku is a way to host your site for free)
     "precommit": "eslint src",
-    // checks for crazy, bad styles
     "prod": "NODE_ENV=production node server.js"
-    // sets the environment to production and runs node
   },
   "repository": {
     "type": "git",
     "url": "git@github.com:bottega-code-school/js-builder.git"
   },
   "keywords": [
-    // for others to see what this app is made up of. Good for search enging optimizaiton
     "es6",
     "es7",
     "webpack2",
@@ -35,7 +29,6 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/bottega-code-school/js-builder/issues"
-    // For open source, you want to provide a place for others to list problems
   },
   "homepage": "https://github.com/bottega-code-school/js-builder",
   "dependencies": {
@@ -56,7 +49,7 @@
     "eslint": "^4.2.0",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-react": "^7.1.0",
-    "express": "^4.16.3", // the web server we'll be using
+    "express": "^4.16.3",
     "extract-loader": "^2.0.1",
     "file-loader": "^1.1.11",
     "html-loader": "^0.5.5",
@@ -80,7 +73,6 @@
     "webpack-merge": "^4.1.0"
   },
   "devDependencies": {
-    // these are separated from the main list above, because we only want to provide items that the server is going to need
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-react": "^6.24.1",
