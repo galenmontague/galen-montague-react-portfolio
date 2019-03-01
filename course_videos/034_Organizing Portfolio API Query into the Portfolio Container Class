@@ -1,0 +1,6 @@
+https://rails.devcamp.com/dissecting-react-js/api-communication/organizing-portfolio-api-query-portfolio-container-class
+
+Organizing Portfolio API Query into the Portfolio Container Class
+
+tip: focus on the smallest parts first and test out before incorporating them in other components.
+    ex: Testing out an api. Don't put it into other components first. Just test the api first.

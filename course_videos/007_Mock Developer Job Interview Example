@@ -1,0 +1,49 @@
+https://rails.devcamp.com/full-stack-development-javascript-python/guide/1987
+
+Mock Developer Job Interview Example
+
+Jordan - canditate
+Stephanie - hiring manager
+
+Tell me about yourself.
+What do you know about Bottega?
+How do you keep up to date with the latest tech
+    - attend local meetups
+        - hear from developers about their project
+    - have several side projects for practice
+    - can apply new technology to my own projects
+        - this way it's not a risk to my clients
+    - what beta's are you checking out
+        View's cli
+What are you passionate about in the world of software dev
+Why do you do what you do?
+        - watching a project evolve from scratch and seeing it come to fruition
+Scenario: On a team, what do you do if you recognize you are in over your head?
+        - try to break up the problem into pieces (I will probably know how to build some parts)
+        - solve those parts, then seek help
+Tell me a project that has totally failed. It's dead.
+    - What was the main thing you learned from that project?
+        if we would have taken a smaller approach, connect to one small part of the system, we would have seen the problems sooner
+What source control do you use?
+    - Git and gitHub
+    - almost required when working with a team
+    - also used Bitbucket, Gira, etc.
+Documentation
+    - not a big fan of code comments
+        - "Code never lies, but comments sometimes do"
+    - better to name variable and classnames in highly specific way
+Do you test your own code?
+    - r-spec
+    - right tests first and watch them fail (TDD)
+    - front end
+        - not as specific on one app for testing (so many and all so similar)
+What value would you add to the team?
+    - level of transparent developer
+    - devs who are not honest about what they do and don't know can slow things down the process and waste the organizations time
+Any questions?
+    - what is your dream candidate
+        - tech acnostic, up to date with latest
+        - someone who will mentor and be honest and constructive with juniors
+
+
+

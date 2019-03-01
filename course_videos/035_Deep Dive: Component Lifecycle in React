@@ -1,0 +1,112 @@
+https://bottega.devcamp.com/comprehensive-react-development-tutorial/react-project-two-build-birthday-countdown-application/deep-dive-component-lifecycle-react
+
+Deep Dive: Component Lifecycle in React
+
+
+React Component Lifecycle
+    - in-n-out burger example
+        - drive up to restaurant
+            - start to try to make up your mind
+            (like React MOUNTING process)
+                what kind of data and processess need to occur
+                ex: api calls so the page will have content
+        - pull up and place order
+            - "not available today"
+            - can update order
+            (like React - type into form, or UPDATE, live changes)
+                react is very good at telling which component needs to update (not everything else.) Creates very solid, quick performance because only loading the necessary items, not the whole page.
+        - pay and receive food, drive away
+            - React UNMOUNTING 
+                - if don't ned component, have access to the unmounting process
+                - ex: chat box. if individual leaves the page, you don't want that component running in the background. So cleanup tasks run.
+        ** play around with gitHub items in guide notes
+
+    - coding in video (code is in show notes)
+
+    - from Andrew
+        different install commands for npm packages
+
+        npm i "package"
+        installs the package into the node_modules and adds it to the package.json file
+
+        npm install "package"
+        installs the package into the node_modules and does NOT add it to the package.json file
+
+        npm install --save "package"
+        installs the package into the node_modules and adds it to the package.json file
+
+        or you can manually add packages to the package.json file, and run npm install.
+        
+    - in package.json, he has the code snippets (make some for yourself! watch snippets video) 
+
+** this shows the order of events **
+
+import React, { Component } from "react";
+
+export default class Workflow extends Component {
+  // First
+  constructor() {
+    super();
+    this.state = {};
+    console.log("constructor");
+  }
+
+  // Second
+  static getDerivedStateFromProps() {
+    console.log("getDerivedStateFromProps");
+  }
+
+  // Fourth
+  componentDidMount() {
+    console.log("componentDidMount");
+  }
+
+  // Fith (after update)
+  shouldComponentUpdate() {
+    console.log("shouldComponentUpdate");
+    return true;
+  }
+
+  // Seventh (after update)
+  getSnapshotBeforeUpdate() {
+    console.log("getSnapshotBeforeUpdate");
+    return true;
+  }
+
+  // Eighth (after update)
+  componentDidUpdate() {
+    console.log("componentDidUpdate");
+  }
+
+  // Last
+  componentWillUnmount() {
+    console.log("componentWillUnmount");
+  }
+
+  handleClick = () => {
+    console.log("button clicked");
+    this.setState({ pageTitle: "Workflow" });
+  };
+
+  handleKeyUp = e => {
+    this.setState({ inputDetails: e.target.value });
+  };
+
+  // Third
+  // Sixth (after update)
+  render() {
+    console.log("render");
+
+    return (
+      <div>
+        <h1>Workflow</h1>
+
+        <input type="text" onKeyUp={e => this.handleKeyUp(e)} />
+        <button onClick={this.handleClick}>Click Me</button>
+      </div>
+    );
+  }
+}
+
+        
+            

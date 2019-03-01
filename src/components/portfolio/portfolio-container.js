@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 import PortfolioItem from './portfolio-item'
 
@@ -7,6 +8,8 @@ export default class PortfolioContainer extends Component {
     // LIFECYCLE HOOKS - need to do class-based component
     // use FUNCTIONAL COMPONENT for just rendering out (just passing it data). These are "dumb."
     // CONSTRUCTOR - can only use in class component. Its a built in key word.
+    
+    
     constructor() {
         // without super, we are overriding the parent constructor (what this class is inheriting from 'EXTEND')
         super();
@@ -14,35 +17,26 @@ export default class PortfolioContainer extends Component {
         this.state = {
             pageTitle: "Welcome to my portfolio.",
             isLoading: false,
-            data: [
-                {title: "QUip", category: "eCommerce" },
-                {title: "Eventbrite", category: "Scheduling" },
-                {title: "Ministry Safe", category: "Enterprise" },
-                {title: "SwingAway", category: "eCommerce" }
-            ]
+            data: []
         };
 
-        // this.handlePageTitleUpdate = this.handlePageTitleUpdate.bind(this);
-        // bind allows handlePageTitleUpdate below to access "this". Gives access to the data of the component in the object above.
         this.handleFilter = this.handleFilter.bind(this);
-    }
-
-    portfolioItems() {
-
-        // map interates over a collection, performs a function, and returns the new collection. It accepts a function as an arguement (a "call back"), so map is a higher order function. It always needs to 'return' on every loop.
-        return this.state.data.map(item => {
-            return <PortfolioItem title={item.title} url={"google.com"}/>;
-            // will produce i portfolio items (3 in this case for 'const data')
-        })
+        // bind allows handlePageTitleUpdate below to access "this". Gives access to the data of the component in the object above.
     }
     
-    // handlePageTitleUpdate() {
-    //     this.setState({
-    //         pageTitle: "Something Else" // this changes the pageTitle above
-    //     });
-    // }
+    portfolioItems() {
+        // map interates over a collection, performs a function, and returns the new collection. It accepts a function as an arguement (a "call back"), so map is a higher order function. It always needs to 'return' on every loop.
+        return this.state.data.map(item => {
+            return (
+                <PortfolioItem
+                    key={item.id}
+                    item={item}
+                />
+            );
+        });
+    }
 
-    handleFilter(filter) {
+    handleFilter(filter) { 
         this.setState({
             data: this.state.data.filter(item => {
                 return item.category === filter;
@@ -51,28 +45,45 @@ export default class PortfolioContainer extends Component {
             // .filter is used on an array
         })
     }
-
-
+    
+    getPortfolioItems() {
+        // this is from axios at npm.com
+        // the url is from https://www.devcamp.space/project/portfolio
+        axios
+            .get("https://galenmontague.devcamp.space/portfolio/portfolio_items")
+            .then(response => {
+            this.setState({
+                data: response.data.portfolio_items
+            })
+            })
+            .catch(error => {
+            console.log(error);
+        });
+    }
+    
+    componentDidMount() {
+        this.getPortfolioItems();
+    }
+    
     render() {
         if (this.state.isLoading) {
-            return <div>Loading...</div>;
+            return <div>Loading...</div>;                
         }
+        
         return (
-            // JSX code here (not actually HTML)
-            <div>
-                <h2>{this.state.pageTitle}</h2>
+            
+    // JSX code here (not actually HTML)
+    <div>
+        <h2>{this.state.pageTitle}</h2>
 
-                <button onClick={() => this.handleFilter('eCommerce')}>eCommerce</button>
-                {/* // the arrown func invokes the handleFilter function */}
-                <button onClick={() => this.handleFilter('Scheduling')}>Scheduling</button>
-                <button onClick={() => this.handleFilter('Enterprise')}>Enterprise</button>
+        <button onClick={() => this.handleFilter('eCommerce')}>eCommerce</button>
+        {/* // the arrown func invokes the handleFilter function */}
+        <button onClick={() => this.handleFilter('Scheduling')}>Scheduling</button>
+        <button onClick={() => this.handleFilter('Enterprise')}>Enterprise</button>
 
-                {this.portfolioItems()}
+        {this.portfolioItems()}
 
-
-                {/* <button onClick={this.handlePageTitleUpdate}>Change Title</button> */}
-
-            </div>
-        )
-    }
+    </div>
+)
+}
 }

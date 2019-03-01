@@ -1,0 +1,10 @@
+higher order component
+    passes functions through to another component as a property (using PROPS)
+    runs a funciton in the class or parent component
+    you are passing attributes in a non-inheritence way (it's passing on through properties instead)
+
+to compose something you are perfroming a short cut instead of true inheritence
+
+rather than inherit an entire component, just pass the one piece that is needed
+
+We won't be creating higher order components usally (many already exist in React)
