@@ -1,1 +1,4 @@
+@import "./variables.scss";
+// need to have this first so all others have access
 @import "./base.scss";
+@import "./navigation.scss";
