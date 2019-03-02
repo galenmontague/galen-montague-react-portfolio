@@ -4,10 +4,13 @@
 //     font-size: 62.5%; // 1rem is 10px, so this will be 62.5% of 10px
 // }
 
-
-
 body {
     margin: 0px;
     font-family: 'Titillium Web', sans-serif;
 
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
 }

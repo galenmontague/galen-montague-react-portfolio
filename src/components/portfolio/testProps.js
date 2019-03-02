@@ -1,10 +1,8 @@
-import
 export default function(props) {
     return(
         <div>
-            <h1>{props.title}</hi>
-            <h1>{props.content}</hi>
-
+            <h1>{props.title}</h1>
+            <h1>{props.content}</h1>
         </div>
     )
 }

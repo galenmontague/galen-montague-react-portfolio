@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import moment from "moment";
 
 import {
   BrowserRouter as Router,
@@ -16,17 +15,14 @@ import Blog from "./pages/blog";
 import PortfolioDetail from "./portfolio/portfolio-detail";
 import NoMatch from "./pages/no-match";
 
-
 // this is the parent component for our whole application
 export default class App extends Component {
   render() {
     return (
       // return can only return one element (so one div only)
-      <div className='app'>
+      <div className="container">
         <Router>
           <div>
-              <h1>Galen Montague's Portfolio</h1>
-              <div>{moment().format('MMMM Do YYYY, h:mm:ss a')}</div>
               <NavigationContainer />
 
               <Switch>
