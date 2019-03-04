@@ -13,6 +13,7 @@ import About from "./pages/about";
 import Contact from "./pages/contact";
 import Blog from "./pages/blog";
 import PortfolioDetail from "./portfolio/portfolio-detail";
+import Auth from "./pages/auth";
 import NoMatch from "./pages/no-match";
 
 // this is the parent component for our whole application
@@ -34,6 +35,7 @@ export default class App extends Component {
                   {/* the slash is standing in for the root url (the landing url) */}
                   {/* only one exact path is allowed */}
                 <Route path="/about-me" component={About} />
+                <Route path="/auth" component={Auth} />
                   {/* "Route" can take props "path" is the prop */}
                 <Route path="/contact" component={Contact} />
                 <Route path="/blog" component={Blog} />
