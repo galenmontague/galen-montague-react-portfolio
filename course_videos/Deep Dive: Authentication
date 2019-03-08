@@ -1,0 +1,11 @@
+Deep Dive Authentication
+
+how cookies work to for the api to communicate with the browser
+    - cookies comes from "magic cookies"
+        - text packages (little data packets) that the browser can read
+        - sites can't read other sites cookies
+    - placed inside your browser session (even after you restart, etc.)
+    - "with credentials: True" allows the cookies to be created
+
+using Postman
+    - Postman is an api testing tool
