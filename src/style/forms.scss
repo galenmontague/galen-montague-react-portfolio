@@ -1,0 +1,20 @@
+textarea {
+    // this is not a class, it's the input (an actual html element)
+    // this is a global style. If more than one text area is created, then should give the textarea a name and style it specifically.
+    border: 1px solid $teal;
+    background-color: transparent;
+    font-size: 1rem;
+    height: 100px;
+    outline: none;
+    padding: 10px;
+}
+
+.select-element {
+    border: 1px solid #ccc;
+    font-size: 0.8rem;
+    width: 100%;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: transparent;
+    outline: none;
+}

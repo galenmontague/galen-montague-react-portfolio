@@ -36,25 +36,32 @@ export default class PortfolioContainer extends Component {
         });
     }
 
-    handleFilter(filter) { 
-        this.setState({
-            data: this.state.data.filter(item => {
-                return item.category === filter;
-            })
-            // this will filter the data in "data" above
-            // .filter is used on an array
-        })
+    handleFilter(filter) {
+        if (filter === "CLEAR_FILTERS") {
+            this.getPortfolioItems();
+        } else {
+            this.getPortfolioItems(filter);
+        }
     }
     
-    getPortfolioItems() {
-        // this is from axios at npm.com
-        // the url is from https://www.devcamp.space/project/portfolio
+    getPortfolioItems(filter = null) {
+        // Filter is optional. If you pass one in, then the function can work with it. 
         axios
-            .get("https://galenmontague.devcamp.space/portfolio/portfolio_items")
-            .then(response => {
-            this.setState({
-                data: response.data.portfolio_items
-            })
+        .get("https://galenmontague.devcamp.space/portfolio/portfolio_items")
+        .then(response => {
+            if (filter) {
+                this.setState({
+                    data: response.data.portfolio_items.filter(item => {
+                        return item.category === filter;
+                            // this will filter the data in "data" above
+                            // .filter is used on an array
+                        })
+                    })
+                } else {
+                    this.setState({
+                        data: response.data.portfolio_items
+                    })
+                }
             })
             .catch(error => {
             console.log(error);
@@ -72,18 +79,24 @@ export default class PortfolioContainer extends Component {
         
         return (
     // JSX code here (not actually HTML)
-            <div className="portfolio-items-wrapper">
-                <button className="btn" onClick={() => this.handleFilter('eCommerce')}>
-                    eCommerce
-                </button>
-                {/* // the arrown func invokes the handleFilter function */}
-                <button className="btn" onClick={() => this.handleFilter('Scheduling')}>
-                    Scheduling
-                </button>
-                <button className="btn" onClick={() => this.handleFilter('Enterprise')}>
-                    Enterprise
-                </button>
-            {this.portfolioItems()}</div>
+            <div className="homepage-wrapper">
+                <div className="filter-links">
+                    <button className="btn" onClick={() => this.handleFilter('eCommerce')}>
+                        eCommerce
+                    </button>
+                    {/* // the arrown func invokes the handleFilter function */}
+                    <button className="btn" onClick={() => this.handleFilter('Scheduling')}>
+                        Scheduling
+                    </button>
+                    <button className="btn" onClick={() => this.handleFilter('Enterprise')}>
+                        Enterprise
+                    </button>
+                    <button className="btn" onClick={() => this.handleFilter('CLEAR_FILTERS')}>
+                        All
+                    </button>
+                </div>
+                <div className="portfolio-items-wrapper">{this.portfolioItems()}</div>
+            </div>
         )   
     }
 }

@@ -9,14 +9,55 @@ export default class PortfolioManager extends Component {
     super();
 
     this.state = {
-      portfolioItems: []
+      portfolioItems: [],
+      portfolioToEdit: {},
+        // this is an object
     };
 
-    this.handleSuccessfulFormSubmission = this.handleSuccessfulFormSubmission.bind(this);
+    this.handleNewFormSubmission = this.handleNewFormSubmission.bind(this);
+    this.handleEditFormSubmission = this.handleEditFormSubmission.bind(this);
     this.handleFormSubmissionError = this.handleFormSubmissionError.bind(this);
+    this.handleDeleteClick = this.handleDeleteClick.bind(this);
+    this.handleEditClick = this.handleEditClick.bind(this);
+    this.clearPortfolioToEdit = this.clearPortfolioToEdit.bind(this);
   }
 
-  handleSuccessfulFormSubmission(portfolioItem) {
+  clearPortfolioToEdit() {
+    this.setState({
+      portfolioToEdit: {}
+        // returns portfolioToEdit state to an empty object
+    })
+  }
+
+  handleEditClick(portfolioItem) {
+    this.setState({
+      portfolioToEdit: portfolioItem
+    });
+  }
+
+  handleDeleteClick(portfolioItem) {
+    axios.delete(`https://api.devcamp.space/portfolio/portfolio_items/${portfolioItem.id}`, { withCredentials: true })
+    .then(response => {
+        // when the response comes back, need to iterate over the state (portfolio) items and remove that record from state
+      this.setState({
+        // going to iterate and create a new collection on the fly
+        portfolioItems: this.state.portfolioItems.filter(item => {
+          return item.id !== portfolioItem.id;
+        })
+          // map allows building a new collection, filter iterates and only keeps certain items (in this case we keep all items except for the record with the same id that we just deleted)
+      });
+
+        return response.data;
+    }).catch(error => {
+      console.log("handleDeleteClick error", error);
+    });
+  }
+
+  handleEditFormSubmission() {
+    this.getPortfolioItems();
+  }
+
+  handleNewFormSubmission(portfolioItem) {
     this.setState({
       portfolioItems: [portfolioItem].concat(this.state.portfolioItems)
     })
@@ -51,13 +92,19 @@ export default class PortfolioManager extends Component {
       <div className="portfolio-manager-wrapper">
         <div className="left-column">
           <PortfolioForm
-            handleSuccessfulFormSubmission={this.handleSuccessfulFormSubmission}
+            handleNewFormSubmission={this.handleNewFormSubmission}
+            handleEditFormSubmission={this.handleEditFormSubmission}
             handleFormSubmissionError={this.handleFormSubmissionError}
+            clearPortfolioToEdit={this.clearPortfolioToEdit}
+            portfolioToEdit={this.state.portfolioToEdit}
           />
         </div>
 
         <div className="right-column">
-          <PortfolioSidebarList data={this.state.portfolioItems} />
+          <PortfolioSidebarList 
+            handleDeleteClick={this.handleDeleteClick}
+            data={this.state.portfolioItems}
+            handleEditClick={this.handleEditClick} />
         </div>
       </div>
     );

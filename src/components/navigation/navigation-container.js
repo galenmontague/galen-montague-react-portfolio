@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { withRouter } from  "react-router";
 // higher order components (starts with lowercase)
 import { NavLink } from "react-router-dom";
@@ -58,12 +59,16 @@ const NavigationComponent = (props) => {
 
             <div className="right-side">
                 GALEN MONTAGUE
-
-                {props.loggedInStatus === 'LOGGED_IN' ? <a onClick={handleSignOut}>Sign Out</a> : null} 
+                {props.loggedInStatus === 'LOGGED_IN' ? (
+                    <a onClick={handleSignOut}>
+                        <FontAwesomeIcon icon="sign-out-alt" />
+                            {/* // for passing in the icon props, use kabob case */}
+                    </a>
+                ) : null} 
             </div>
         </div>
     );
-}
+};
 
 export default withRouter(NavigationComponent);
     // this is performing composition with the higher order component (withRouter). This will have access to props.history so we can access the browser history.

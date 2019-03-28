@@ -7,7 +7,6 @@ import {
   Route
 } from "react-router-dom";
 import axios from "axios";
-
 import NavigationComponent from "./navigation/navigation-container";
 import Home from "./pages/home";
 import About from "./pages/about";
@@ -17,11 +16,14 @@ import PortfolioManager from "./pages/portfolio-manager";
 import PortfolioDetail from "./portfolio/portfolio-detail";
 import Auth from "./pages/auth";
 import NoMatch from "./pages/no-match";
+import Icons from "../helpers/icons"
 
 // this is the parent component for our whole application
 export default class App extends Component {
   constructor(props) {
     super(props);
+
+    Icons();
 
     this.state = {
       loggedInStatus: "NOT_LOGGED_IN" // better than a boolean true/false bc those can introduce bugs
