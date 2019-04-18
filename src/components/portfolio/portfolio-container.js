@@ -81,15 +81,18 @@ export default class PortfolioContainer extends Component {
     // JSX code here (not actually HTML)
             <div className="homepage-wrapper">
                 <div className="filter-links">
-                    <button className="btn" onClick={() => this.handleFilter('eCommerce')}>
-                        eCommerce
+                    <button className="btn" onClick={() => this.handleFilter('HTML/CSS')}>
+                        HTML/CSS
                     </button>
                     {/* // the arrown func invokes the handleFilter function */}
-                    <button className="btn" onClick={() => this.handleFilter('Scheduling')}>
-                        Scheduling
+                    <button className="btn" onClick={() => this.handleFilter('JavaScript')}>
+                        JavaScript
                     </button>
-                    <button className="btn" onClick={() => this.handleFilter('Enterprise')}>
-                        Enterprise
+                    <button className="btn" onClick={() => this.handleFilter('Python')}>
+                        Python
+                    </button>
+                    <button className="btn" onClick={() => this.handleFilter('React')}>
+                        React
                     </button>
                     <button className="btn" onClick={() => this.handleFilter('CLEAR_FILTERS')}>
                         All

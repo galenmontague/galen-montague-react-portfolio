@@ -197,8 +197,8 @@ export default class PortfolioForm extends Component {
                     thumb_image: "",
                     banner_image: "",
                     logo: "",
-                    // Resets our state back to empty string.
-                    // These are attributes in our state, below are elements in the DOM.
+                    // Resets the state back to empty string.
+                    // These are attributes in the state, below are elements in the DOM.
                     editMode: false,
                     apiUrl: "https://galenmontague.devcamp.space/portfolio/portfolio_items",
                     apiAction: "post"
@@ -254,9 +254,13 @@ export default class PortfolioForm extends Component {
                             className="select-element"
                         >
                             <option>Select Category</option>
-                            <option value="eCommerce">eCommerce</option>
+                            <option value="HTML/CSS">HTML/CSS</option>
+                            <option value="JavaScript">JavaScript</option>
+                            <option value="React">React</option>
+                            <option value="Python">Python</option>
+                            {/* <option value="eCommerce">eCommerce</option>
                             <option value="Scheduling">Scheduling</option>
-                            <option value="Enterprise">Enterprise</option>
+                            <option value="Enterprise">Enterprise</option> */}
                         </select>
                     </div >
 

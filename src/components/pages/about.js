@@ -5,9 +5,36 @@ export default function() {
     return (
         <div className="content-page-wrapper">
             <div className="right-column">
-                bio, list of skills, experiences
-                <br></br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <div>
+                    <div className="about-name">Galen Montague</div>
+                    <div className="about-sub-title">Full Stack Web Developer</div>
+                    <div className='about-list-wrapper'>
+                        <div className="about-list-item">
+                            <li className="about-bullet"></li>    
+                            <p className="about-content">Passionate problem solver with full stack development capability.</p>
+                        </div>
+                        <div className="about-list-item">
+                            <li className="about-bullet"></li>    
+                            <p className="about-content">Professional design experience with dedication to pixel-perfect execution.</p>
+                        </div>
+                        <div className="about-list-item">
+                            <li className="about-bullet"></li>    
+                            <p className="about-content">Detail oriented, willing to dive into the minutiae to get it right.</p>
+                        </div>
+                        <div className="about-list-item">
+                            <li className="about-bullet"></li>    
+                            <p className="about-content">Experienced manager and positive team player.</p>
+                        </div>
+                        <div className="about-list-item">
+                            <li className="about-bullet"></li>    
+                            <p className="about-content">Conceptual thinker, naturally inquisitive. Determined to understand the whys and hows.</p>
+                        </div>
+                        <div className="about-list-item">
+                            <li className="about-bullet"></li>    
+                            <p className="about-content">Confident communicator with professional customer service experience.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div
             className="left-column"

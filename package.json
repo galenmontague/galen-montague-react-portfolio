@@ -33,6 +33,7 @@
   "homepage": "https://github.com/bottega-code-school/js-builder",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-brands-svg-icons": "^5.8.1",
     "@fortawesome/free-solid-svg-icons": "^5.8.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "ajv": "^5.5.2",

@@ -4,7 +4,7 @@ import contactPagePicture from "../../../static/assets/images/auth/login.jpg";
  
 
 export default function() {
-    return (
+    return (  
         <div className="content-page-wrapper">
             <div
             className="left-column"
@@ -40,6 +40,14 @@ export default function() {
                         </div>
 
                         <div className="text">Lehi, UT</div>
+                    </div>
+
+                    <div className="bullet-point-group">
+                        <div className="icon">
+                            <FontAwesomeIcon icon={["fab", "linkedin"]} />
+                        </div>
+
+                        <div className="text">Galen Montague</div>
                     </div>
                 </div>
             </div>
