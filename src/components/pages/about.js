@@ -1,5 +1,6 @@
 import React from 'react';
 import profilePicture from "../../../static/assets/images/bio/portrait.jpg"
+import { Link } from "react-router-dom"
 
 export default function() {
     return (
@@ -32,6 +33,10 @@ export default function() {
                         <div className="about-list-item">
                             <li className="about-bullet"></li>    
                             <p className="about-content">Confident communicator with professional customer service experience.</p>
+                        </div>
+
+                        <div className="contact-link-wrapper">
+                            <Link to="/contact" className="contact-link">Contact Me</Link>
                         </div>
                     </div>
                 </div>
