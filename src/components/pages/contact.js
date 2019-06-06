@@ -30,7 +30,7 @@ export default function() {
                         </div>
 
                         <div className="text">
-                            galen.montague@gmail.com
+                            <a className="mailto" href="mailto:galen.montague@gmail.com">galen.montague@gmail.com</a>
                         </div>
                     </div>
 
@@ -47,7 +47,8 @@ export default function() {
                             <FontAwesomeIcon icon={["fab", "linkedin"]} />
                         </div>
 
-                        <div className="text">Galen Montague</div>
+                        <div className="text">
+                            <a className="linkedIn" href="https://www.linkedin.com/in/galen-montague-1097b147/" target="_blank">Galen Montague</a></div>
                     </div>
                 </div>
             </div>

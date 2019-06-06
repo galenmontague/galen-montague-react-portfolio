@@ -57,6 +57,11 @@
           font-size: 1.5em;
           font-weight: 900;
           margin-left: 21px;
+          
+          .mailto, .linkedIn {
+            text-decoration: none;
+            color: black;
+          }
         }
       }
     }
